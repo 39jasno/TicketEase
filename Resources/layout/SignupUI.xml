@@ -12,33 +12,18 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:id="@+id/textView1" />
-    <TextView
-        android:text="First Name"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="First Name"
         android:id="@+id/editText1" />
-    <TextView
-        android:text="Last Name"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView3" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Last Name"
         android:id="@+id/editText2" />
-    <TextView
-        android:text="Gender"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
     <RadioGroup
         android:minWidth="25px"
         android:minHeight="25px"
@@ -57,51 +42,35 @@
             android:text="Female"
             android:id="@+id/radioButton2" />
     </RadioGroup>
-    <TextView
-        android:text="Birthdate"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView5" />
+  
     <EditText
         android:inputType="date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Birth Date"
         android:id="@+id/editText3" />
-    <TextView
-        android:text="Mobile Number"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView6" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Mobile Number"
         android:id="@+id/editText4" />
-    <TextView
-        android:text="Email"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView7" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Email"
+        
         android:id="@+id/editText5" />
-    <TextView
-        android:text="Password"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView8" />
+ 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Password"
         android:id="@+id/editText6" />
     <Button
         android:text="Signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/button1" />
+
 
 </LinearLayout>
