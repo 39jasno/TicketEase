@@ -35,13 +35,19 @@ namespace TicketEase
             switch (item.ItemId)
             {
                 case Resource.Id.navigation_home:
-                    textMessage.SetText(Resource.String.title_home);
+                    //textMessage.SetText(Resource.String.title_home);
+                    Intent i = new Intent(this, typeof(Homepage));
+                    StartActivity(i);
                     return true;
-                case Resource.Id.navigation_dashboard:
-                    textMessage.SetText(Resource.String.title_dashboard);
+                case Resource.Id.navigation_movies:
                     return true;
-                case Resource.Id.navigation_notifications:
-                    textMessage.SetText(Resource.String.title_notifications);
+                case Resource.Id.navigation_cinema:
+                    return true;
+                case Resource.Id.navigation_food:
+                    return true;
+                case Resource.Id.navigation_signout:
+                    i = new Intent(this, typeof(MainActivity));
+                    StartActivity(i);
                     return true;
             }
             return false;
