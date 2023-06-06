@@ -33,7 +33,7 @@ namespace TicketEase
 
         private void SearchFoods(string foodName)
         {
-            request = (HttpWebRequest)WebRequest.Create("http://192.168.100.52/ticketease/rest/search_food.php?food_name=" + foodName);
+            request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50/ticketease/rest/search_food.php?food_name=" + foodName);
             response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             var result = reader.ReadToEnd();

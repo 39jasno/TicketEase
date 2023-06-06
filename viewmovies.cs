@@ -34,7 +34,7 @@ namespace TicketEase
 
         private void SearchMovies(string movieName)
         {
-            request = (HttpWebRequest)WebRequest.Create("http://192.168.100.52/ticketease/rest/search_record.php?movie_name=" + movieName);
+            request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50/ticketease/rest/search_record.php?movie_name=" + movieName);
             response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             var result = reader.ReadToEnd();
