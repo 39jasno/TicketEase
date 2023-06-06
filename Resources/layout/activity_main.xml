@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,28 +13,28 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/pagetitle"
+        android:id="@+id/textView1"
         android:gravity="center" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edituser"
+        android:id="@+id/editText1"
         tools:text="Username" />
     <EditText
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editpass"
+        android:id="@+id/editText2"
         tools:text="Password"
         android:password="false" />
     <Button
         android:text="Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnlogin" />
+        android:id="@+id/button1" />
     <Button
         android:text="Signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnsignup" />
+        android:id="@+id/button2" />
 </LinearLayout>
