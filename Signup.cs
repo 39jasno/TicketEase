@@ -64,7 +64,7 @@ namespace TicketEase
             user_email = newemail.Text;
             user_pass = newpass.Text;
 
-            request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50:8080/ticketease/rest/add_record.php?user_fname=" + user_fname + "&user_lname=" + user_lname + "&user_gender=" + gender + "&user_bdate=" + user_bdate + "&user_number=" + user_number + "&user_email=" + user_email + "&user_pass=" + user_pass);
+            request = (HttpWebRequest)WebRequest.Create("http://192.168.100.52/ticketease/rest/add_record.php?user_fname=" + user_fname + "&user_lname=" + user_lname + "&user_gender=" + gender + "&user_bdate=" + user_bdate + "&user_number=" + user_number + "&user_email=" + user_email + "&user_pass=" + user_pass);
             response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             res = reader.ReadToEnd();
