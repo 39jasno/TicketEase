@@ -6,24 +6,48 @@
     android:minHeight="25px"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:id="@+id/linearLayout1">
+    <ImageView
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/Logo"
+        android:layout_width="250px"
+        android:layout_height="300px"
+        android:layout_gravity="center"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/imageView1" />
     <TextView
-        android:text="Signup"
+        android:text="@string/signupButton"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:id="@+id/textView1" />
-    <EditText
+    <TextView
+        android:text="@string/fullname"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="First Name"
+        android:id="@+id/textView2" />
+    <EditText
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/firstname"
         android:id="@+id/editText1" />
     <EditText
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Last Name"
+        android:hint="@string/lastname"
         android:id="@+id/editText2" />
+    <TextView
+        android:text="@string/gender"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3" />
     <RadioGroup
         android:minWidth="25px"
         android:minHeight="25px"
@@ -34,42 +58,71 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Male"
+            android:text="@string/male"
             android:id="@+id/radioButton1" />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"
+            android:text="@string/female"
             android:id="@+id/radioButton2" />
     </RadioGroup>
-  
-    <EditText
-        android:inputType="date"
+    <TextView
+        android:text="@string/birthdate"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Birth Date"
+        android:id="@+id/textView4" />
+    <EditText
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/month"
         android:id="@+id/editText3" />
     <EditText
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mobile Number"
+        android:hint="@string/day"
         android:id="@+id/editText4" />
     <EditText
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
-        
+        android:hint="@string/year"
         android:id="@+id/editText5" />
- 
+    <androidx.legacy.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/space1" />
     <EditText
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="@string/number"
         android:id="@+id/editText6" />
-    <Button
-        android:text="Signup"
+    <EditText
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:id="@+id/editText7" />
+    <EditText
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/username"
+        android:id="@+id/editText8" />
+    <EditText
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/pass"
+        android:id="@+id/editText9" />
+    <Button
+        android:text="@string/signupButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#dba622"
         android:id="@+id/button1" />
 
 
