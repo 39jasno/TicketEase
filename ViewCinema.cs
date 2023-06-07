@@ -39,7 +39,9 @@ namespace TicketEase
         }
         public void Cinema1(object sender, EventArgs e)
         {
-            cinema = "cinema1";
+            Intent i = new Intent(this, typeof(ViewCinemaDetails));
+            i.PutExtra("cinema", cinema);
+            StartActivity(i);
 
         }
         public bool OnNavigationItemSelected(IMenuItem item)

@@ -15,11 +15,19 @@ namespace TicketEase
     [Activity(Label = "ViewCinemaDetails")]
     public class ViewCinemaDetails : Activity
     {
+        ImageView imgView;
+        TextView textView1, textView2;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.Cinema);
 
             // Create your application here
+
+            imgView = FindViewById<ImageView>(Resource.Id.imageView1);
+            textView1 = FindViewById<TextView>(Resource.Id.textView1);
+            textView2 = FindViewById<TextView>(Resource.Id.textView2);
+
         }
     }
 }
