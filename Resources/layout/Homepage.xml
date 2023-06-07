@@ -6,19 +6,53 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ImageView
+        android:src="@drawable/homepagebanner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:id="@+id/imageView1" />
+    <TextView
+        android:text="@string/welcome"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:layout_below="@id/imageView1"
+        android:id="@+id/textView1" />
+    <Button
+        android:text="@string/viewMovie"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:backgroundTint="#dba622"
+        android:layout_below="@id/textView1"
+        android:id="@+id/button1" />
+    <Button
+        android:text="@string/viewCinema"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:backgroundTint="#dba622"
+        android:layout_below="@id/button1"
+        android:id="@+id/button2" />
+    <Button
+        android:text="@string/viewFood"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:backgroundTint="#dba622"
+        android:layout_below="@id/button2"
+        android:id="@+id/button3" />
+    <Button
+        android:text="@string/viewAccount"
+        android:textColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:backgroundTint="#dba622"
+        android:layout_below="@id/button3"
+        android:id="@+id/button4" />
 
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="0dp"
-        android:layout_marginStart="0dp"
-        android:background="?android:attr/windowBackground"
-        android:layout_alignParentBottom="true"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/navigation" />
-
-        
 
 </RelativeLayout>

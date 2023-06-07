@@ -12,7 +12,6 @@
 	<string name="loginButton">Login</string>
 	<string name="signupButton">Sign up</string>
 	<!--Signup-->
-
 	<string name="signup">Signup</string>
 	<string name="fullname">Full Name</string>
 	<string name="firstname">First Name</string>
@@ -28,6 +27,13 @@
 	<string name="username">Username</string>
 	<string name="email">Email</string>
 	<string name="pass">Password</string>
+	<!--Homepage-->
+	<string name="welcome">Welcome to TicketEase!</string>
+	<string name="viewMovie">Movies</string>
+	<string name="viewCinema">Cinema</string>
+	<string name="viewFood">Food</string>
+	<string name="viewAccount">Account</string>
+
 
 
 </resources>
