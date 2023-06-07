@@ -84,11 +84,12 @@ namespace TicketEase
             user_username = newuser.Text;
             user_pass = newpass.Text;
 
-            request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50:8080/ticketease/rest/signup.php?user_fname=" + user_fname + "&user_lname=" + user_lname + "&user_gender=" + selectedGender + "&user_month=" + user_month + "&user_day=" + user_day + "&user_year=" + user_year + "&user_number=" + user_number + "&user_email=" + user_email + "&user_username=" +user_username + "&user_pass=" + user_pass);
+            request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50:8080/ticketease/rest/signup.php?user_fname=" + user_fname + "&user_lname=" + user_lname + "&user_gender=" + user_gender + "&user_month=" + user_month + "&user_day=" + user_day + "&user_year=" + user_year + "&user_number=" + user_number + "&user_email=" + user_email + "&user_username=" +user_username + "&user_pass=" + user_pass);
             response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             res = reader.ReadToEnd();
             Toast.MakeText(this, res, ToastLength.Long).Show();
+            SetContentView(Resource.Layout.LoginUI);
 
         }
     }
