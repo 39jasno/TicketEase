@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,45 +12,48 @@
     android:gravity="center"
     android:background="#e6e6e6"
     android:id="@+id/linearLayout1">
+   
     <ImageView
+        android:contentDescription="@string/app_name"
         android:src="@drawable/logo"
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
-        android:id="@+id/imageView1"
+        android:id="@+id/imageLogo"
         android:layout_marginBottom="0.0dp" />
     <EditText
+        android:inputType="text"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:id="@+id/edituser"
-        android:hint="Username"/>
+        android:id="@+id/editUser"
+        android:hint="@string/loginUser"/>
    
     <EditText
         android:inputType="textPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:id="@+id/editpass"
-        android:hint="Password"
+        android:id="@+id/editPass"
+        android:hint="@string/loginPass"
         android:password="false" />
     <androidx.legacy.widget.Space
         android:layout_width="match_parent"
         android:layout_height="92.0dp"
         android:id="@+id/space1" />
     <Button
-        android:text="Login"
+        android:text="@string/loginButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="#dba622"
-        android:id="@+id/btnlogin"/>
+        android:id="@+id/btnLogin"/>
     <Button
-        android:text="Signup"
+        android:text="@string/signup"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="#cdccca"
         android:textColor="#000000"
-        android:id="@+id/btnsignup"/>
+        android:id="@+id/btnSignup"/>
 </LinearLayout>

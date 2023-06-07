@@ -1,19 +1,31 @@
 <resources>
-
-    <string name="app_name">TicketEase</string>
-    <string name="title_home">Home</string>
+	<string name="app_name">TicketEase</string>
+	<!--Nav Bar-->
+	<string name="title_home">Home</string>
     <string name="title_movies">Movies</string>
     <string name="title_cinema">Cinema</string>
 	<string name="title_signout">Signout</string>
 	<string name="title_food">Food</string>
+	<!--Login-->
+	<string name="loginUser">Username</string>
+	<string name="loginPass">Password</string>
+	<string name="loginButton">Login</string>
+	<string name="signupButton">Sign up</string>
+	<!--Signup-->
 
-	<string name="edit_user">Username</string>
-
-	<string name="signup">Sign up</string>
+	<string name="signup">Signup</string>
+	<string name="fullname">Full Name</string>
 	<string name="firstname">First Name</string>
 	<string name="lastname">Last Name</string>
+	<string name="gender">Gender</string>
+	<string name="male">Male</string>
+	<string name="female">Female</string>
 	<string name="birthdate">Birthdate</string>
+	<string name="month">Month [01]</string>
+	<string name="day">Day [01]</string>
+	<string name="year">Year [2000]</string>
 	<string name="number">Mobile Number</string>
+	<string name="username">Username</string>
 	<string name="email">Email</string>
 	<string name="pass">Password</string>
 
