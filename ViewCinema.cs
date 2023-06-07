@@ -16,6 +16,8 @@ namespace TicketEase
     [Activity(Label = "ViewCinema")]
     public class ViewCinema : Activity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
+        Button btn1, btn2, btn3, btn4;
+        string cinema = "", seats = "";
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -24,6 +26,21 @@ namespace TicketEase
             navigation.SetOnNavigationItemSelectedListener(this);
 
             // Create your application here
+            btn1 = FindViewById<Button>(Resource.Id.button1);
+            btn2 = FindViewById<Button>(Resource.Id.button2);
+            btn3 = FindViewById<Button>(Resource.Id.button3);
+            btn4 = FindViewById<Button>(Resource.Id.button4);
+
+            btn1.Click += this.Cinema1;
+            //btn2.Click += this.Cinema2;
+            //btn3.Click += this.Cinema3;
+            //btn4.Click += this.Cinema4;
+
+        }
+        public void Cinema1(object sender, EventArgs e)
+        {
+            cinema = "cinema1";
+
         }
         public bool OnNavigationItemSelected(IMenuItem item)
         {

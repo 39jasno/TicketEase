@@ -48,7 +48,7 @@ namespace TicketEase
             if (res.Contains("Login Successfuly"))
             {
                 Intent i = new Intent(this, typeof(Homepage));
-                i.PutExtra("Name", user_email);
+                i.PutExtra("Name", user_username);
                 StartActivity(i);
             }
         }

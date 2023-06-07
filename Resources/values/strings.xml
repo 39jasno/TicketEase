@@ -33,6 +33,11 @@
 	<string name="viewCinema">Cinema</string>
 	<string name="viewFood">Food</string>
 	<string name="viewAccount">Account</string>
+	<!--ViewCinema-->
+	<string name="cinema">Cinema</string>
+	<string name="cinema1">Cinema 1</string>
+	<string name="cinema2">Cinema 2</string>
+	<string name="cinema3">Cinema 3</string>
 
 
 
