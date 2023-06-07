@@ -126,7 +126,7 @@
     <AndroidResource Include="Resources\layout\LoginUI.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\SignupUI.xml" />
+    <AndroidResource Include="Resources\drawable\Logo.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\food_layout.xml" />
