@@ -62,14 +62,12 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="firstfood.cs" />
-    <Compile Include="firstmovie.cs" />
+    <Compile Include="foods.cs" />
     <Compile Include="Homepage.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="movies.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="secondfood.cs" />
-    <Compile Include="secondmovie.cs" />
     <Compile Include="Signup.cs" />
     <Compile Include="viewfood.cs" />
     <Compile Include="viewmovies.cs" />
@@ -110,6 +108,12 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Http">
+      <Version>4.3.4</Version>
+    </PackageReference>
     <PackageReference Include="System.Text.Json">
       <Version>7.0.2</Version>
     </PackageReference>
@@ -135,16 +139,10 @@
     <AndroidResource Include="Resources\layout\food1.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\food2.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\movie_layout.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\movie1.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\movie2.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Logo.png" />

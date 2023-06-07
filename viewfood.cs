@@ -33,45 +33,34 @@ namespace TicketEase
 
         private void SearchFoods(string foodName)
         {
-            request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50/ticketease/rest/search_food.php?food_name=" + foodName);
+            request = (HttpWebRequest)WebRequest.Create("http://192.168.100.52/ticketease/rest/search_food.php?food_name=" + foodName);
             response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             var result = reader.ReadToEnd();
             using JsonDocument doc = JsonDocument.Parse(result);
             JsonElement root = doc.RootElement;
 
-            List<string> foodNames = new List<string>();
+            List<string> foodData = new List<string>();
             foreach (JsonElement element in root.EnumerateArray())
             {
-                foodName = element.GetProperty("food_name").ToString();
-                foodNames.Add(foodName);
+
+                string foodMovieName = element.GetProperty("food_name").ToString();
+                string foodInfo = foodMovieName;
+                foodData.Add(foodInfo);
             }
 
-            listView.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, foodNames);
+            listView.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, foodData);
         }
 
         private void MovieItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            var foodName = listView.GetItemAtPosition(e.Position).ToString();
-            // Pass the selected movie name to the respective activity based on the movie name
-            Intent intent;
-            if (foodName == "Pop-Corn")
-            {
-                intent = new Intent(this, typeof(firstfood));
-            }
-            else if (foodName == "Coca-Cola")
-            {
-                intent = new Intent(this, typeof(secondfood));
-            }
-            else
-            {
-                // Handle other movies or show an error message
-                Toast.MakeText(this, "No activity found for this movie", ToastLength.Short).Show();
-                return;
-            }
+            string foodMoName = listView.GetItemAtPosition(e.Position).ToString();
 
-            intent.PutExtra("selected_movie", foodName);
+            Intent intent = new Intent(this, typeof(foods));
+            intent.PutExtra("food_name", foodMoName);
             StartActivity(intent);
+
+
         }
     }
 }

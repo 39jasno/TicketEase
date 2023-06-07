@@ -44,7 +44,7 @@ namespace TicketEase
         {
             user_email = edit1.Text;
             user_pass = edit2.Text;
-            request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50:8080/ticketease/rest/admin_login.php?user_email=" + user_email + "&user_pass=" + user_pass);
+            request = (HttpWebRequest)WebRequest.Create("http://192.168.100.52/ticketease/rest/admin_login.php?user_email=" + user_email + "&user_pass=" + user_pass);
             response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             res = reader.ReadToEnd();

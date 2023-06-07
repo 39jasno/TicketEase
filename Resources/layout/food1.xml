@@ -9,8 +9,17 @@
     android:id="@+id/linearLayout1" >
     <TextView
         android:text="Pop-Corn"
+        android:textStyle="bold"
+        android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
+    <TextView
+        android:text="Price"
+        android:textColor="#000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
 </LinearLayout>
