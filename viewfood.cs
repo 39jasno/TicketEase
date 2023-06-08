@@ -20,7 +20,7 @@ namespace TicketEase
         ListView listView;
         HttpWebRequest request;
         HttpWebResponse response;
-        string food_name = "", res = "";
+        string food_name = "";
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -81,6 +81,8 @@ namespace TicketEase
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_cinema:
+                    i = new Intent(this, typeof(ViewCinema));
+                    StartActivity(i);
                     return true;
                 case Resource.Id.navigation_food:
                     i = new Intent(this, typeof(viewfood));

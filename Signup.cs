@@ -84,6 +84,7 @@ namespace TicketEase
             user_username = newuser.Text;
             user_pass = newpass.Text;
 
+
             //input validation, not null
             if (string.IsNullOrEmpty(user_fname) || string.IsNullOrEmpty(user_lname) ||
                 string.IsNullOrEmpty(user_gender) || string.IsNullOrEmpty(user_month) ||

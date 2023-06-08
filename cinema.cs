@@ -13,7 +13,7 @@ using Android.Widget;
 namespace TicketEase
 {
     [Activity(Label = "ViewCinemaDetails")]
-    public class ViewCinemaDetails : Activity
+    public class cinema : Activity
     {
         ImageView imgView;
         TextView textView1, textView2;

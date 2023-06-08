@@ -1,17 +1,12 @@
-﻿using Android.App;
-using Android.Content;
-using Android.Graphics;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Google.Android.Material.BottomNavigation;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text.Json;
-using static Android.Graphics.Paint;
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Views;
+using Android.Widget;
 using Google.Android.Material.BottomNavigation;
 
 
@@ -23,7 +18,7 @@ namespace TicketEase
         ListView listView;
         HttpWebRequest request;
         HttpWebResponse response;
-        string movie_name = "", res = "";
+        string movie_name = "";
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -83,6 +78,8 @@ namespace TicketEase
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_cinema:
+                    i = new Intent(this, typeof(ViewCinema));
+                    StartActivity(i);
                     return true;
                 case Resource.Id.navigation_food:
                     i = new Intent(this, typeof(viewfood));

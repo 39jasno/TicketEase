@@ -53,7 +53,6 @@ namespace TicketEase
             switch (item.ItemId)
             {
                 case Resource.Id.navigation_home:
-                    //textMessage.SetText(Resource.String.title_home);
                     Intent i = new Intent(this, typeof(Homepage));
                     StartActivity(i);
                     SetContentView(Resource.Layout.Homepage);
@@ -63,6 +62,8 @@ namespace TicketEase
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_cinema:
+                    i = new Intent(this, typeof(ViewCinema));
+                    StartActivity(i);
                     return true;
                 case Resource.Id.navigation_food:
                     i = new Intent(this, typeof(viewfood));
