@@ -39,8 +39,9 @@ namespace TicketEase
         }
         public void ViewCinema(object sender, EventArgs e)
         {
-            SetContentView(Resource.Layout.ViewCinema);
-
+            
+            Intent i = new Intent(this, typeof(ViewCinema));
+            StartActivity(i);
         }
         public void ViewFood(object sender, EventArgs e)
         {
@@ -61,6 +62,8 @@ namespace TicketEase
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_cinema:
+                    i = new Intent(this, typeof(ViewCinema));
+                    StartActivity(i);
                     return true;
                 case Resource.Id.navigation_food:
                     i = new Intent(this, typeof(viewfood));

@@ -70,7 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Signup.cs" />
     <Compile Include="ViewCinema.cs" />
-    <Compile Include="ViewCinemaDetails.cs" />
+    <Compile Include="cinema.cs" />
     <Compile Include="viewfood.cs" />
     <Compile Include="viewmovies.cs" />
   </ItemGroup>
@@ -135,9 +135,6 @@
     <AndroidResource Include="Resources\layout\SignupUI.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\ViewCinema.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\homepageBanner.png" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +181,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\cinema.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\cinema1.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

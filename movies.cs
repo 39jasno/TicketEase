@@ -44,7 +44,7 @@ namespace TicketEase
 
         private void LoadMovieData(string movieName)
         {
-            string url = "http://192.168.1.50:8080/ticketease/rest/Search.php?movie_name=" + movieName;
+            string url = "http://192.168.100.52/ticketease/rest/Search.php?movie_name=" + movieName;
             using (var webClient = new WebClient())
             {
                 try
@@ -85,6 +85,8 @@ namespace TicketEase
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_cinema:
+                    i = new Intent(this, typeof(ViewCinema));
+                    StartActivity(i);
                     return true;
                 case Resource.Id.navigation_food:
                     i = new Intent(this, typeof(viewfood));

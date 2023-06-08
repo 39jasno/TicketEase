@@ -40,7 +40,7 @@ namespace TicketEase
         }
         private void SearchMovies(string movieName)
         {
-            request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50:8080/ticketease/rest/search_record.php?movie_name=" + movieName);
+            request = (HttpWebRequest)WebRequest.Create("http://192.168.100.52/ticketease/rest/search_record.php?movie_name=" + movieName);
             response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             var result = reader.ReadToEnd();
@@ -81,6 +81,8 @@ namespace TicketEase
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_cinema:
+                    i = new Intent(this, typeof(ViewCinema));
+                    StartActivity(i);
                     return true;
                 case Resource.Id.navigation_food:
                     i = new Intent(this, typeof(viewfood));

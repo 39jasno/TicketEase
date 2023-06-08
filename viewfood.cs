@@ -25,12 +25,12 @@ namespace TicketEase
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.movie_layout);
+            SetContentView(Resource.Layout.food_layout);
 
             BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
             navigation.SetOnNavigationItemSelectedListener(this);
 
-            listView = FindViewById<ListView>(Resource.Id.listView);
+            listView = FindViewById<ListView>(Resource.Id.listView1);
             listView.ItemClick += MovieItemClick;
 
             food_name = Intent.GetStringExtra("food_name");
@@ -39,7 +39,7 @@ namespace TicketEase
 
         private void SearchFoods(string foodName)
         {
-            request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50:8080/ticketease/rest/search_food.php?food_name=" + foodName);
+            request = (HttpWebRequest)WebRequest.Create("http://192.168.100.52/ticketease/rest/search_food.php?food_name=" + foodName);
             response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             var result = reader.ReadToEnd();
@@ -81,6 +81,8 @@ namespace TicketEase
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_cinema:
+                    i = new Intent(this, typeof(ViewCinema));
+                    StartActivity(i);
                     return true;
                 case Resource.Id.navigation_food:
                     i = new Intent(this, typeof(viewfood));

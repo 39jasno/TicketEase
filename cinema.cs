@@ -11,54 +11,53 @@ using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 using Google.Android.Material.BottomNavigation;
 
-
 namespace TicketEase
 {
-    [Activity(Label = "foods")]
-    public class foods : Activity, BottomNavigationView.IOnNavigationItemSelectedListener
+    [Activity(Label = "cinema")]
+    public class cinema : Activity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
-        TextView name, price;
+        TextView name, seat;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.food1);
+            SetContentView(Resource.Layout.cinema1);
             BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
             navigation.SetOnNavigationItemSelectedListener(this);
 
-            name = FindViewById<TextView>(Resource.Id.textView1);
-            price = FindViewById<TextView>(Resource.Id.textView2);
+            name = FindViewById<TextView>(Resource.Id.textView2);
+            seat = FindViewById<TextView>(Resource.Id.textView4);
 
-            string foodName = Intent.GetStringExtra("food_name");
-            if (!string.IsNullOrEmpty(foodName))
+            string cinemaName = Intent.GetStringExtra("cinema_name");
+            if (!string.IsNullOrEmpty(cinemaName))
             {
-                LoadFoodData(foodName);
+                LoadcinemaData(cinemaName);
             }
             else
             {
-                Toast.MakeText(this, "No food selected", ToastLength.Short).Show();
+                Toast.MakeText(this, "No cinema selected", ToastLength.Short).Show();
             }
         }
 
-        private void LoadFoodData(string foodName)
+        private void LoadcinemaData(string cinemaName)
         {
-            string url = "http://192.168.100.52/ticketease/rest/search_food.php?food_name=" + foodName;
+            string url = "http://192.168.100.52/ticketease/rest/view_cinema.php?cinema_name=" + cinemaName;
             using (var webClient = new WebClient())
             {
                 try
                 {
                     string jsonData = webClient.DownloadString(url);
-                    List<Food> foodData = JsonConvert.DeserializeObject<List<Food>>(jsonData);
+                    List<Cinema> cinemaData = JsonConvert.DeserializeObject<List<Cinema>>(jsonData);
 
-                    if (foodData.Count > 0)
+                    if (cinemaData.Count > 0)
                     {
-                        Food food = foodData[0];
-                        name.Text = food.FoodName;
-                        price.Text = food.FoodPrice.ToString();
+                        Cinema cinema = cinemaData[0];
+                        name.Text = cinema.cinemaName;
+                        seat.Text = cinema.cinemaSeat.ToString();
                     }
                     else
                     {
-                        Toast.MakeText(this, "No food found with the given name", ToastLength.Short).Show();
+                        Toast.MakeText(this, "No cinema found with the given name", ToastLength.Short).Show();
                     }
                 }
                 catch (WebException ex)
@@ -67,6 +66,7 @@ namespace TicketEase
                 }
             }
         }
+
         public bool OnNavigationItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
@@ -95,12 +95,12 @@ namespace TicketEase
         }
     }
 
-    public class Food
+    public class Cinema
     {
-        [JsonProperty("food_name")]
-        public string FoodName { get; set; }
+        [JsonProperty("cinema_name")]
+        public string cinemaName { get; set; }
 
-        [JsonProperty("food_price")]
-        public decimal FoodPrice { get; set; }
+        [JsonProperty("cinema_seats")]
+        public decimal cinemaSeat { get; set; }
     }
 }

@@ -1,49 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Google.Android.Material.BottomNavigation;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Text.Json;
+using static Android.Graphics.Paint;
+using Google.Android.Material.BottomNavigation;
+
 
 namespace TicketEase
 {
     [Activity(Label = "ViewCinema")]
-    public class ViewCinema : Activity, BottomNavigationView.IOnNavigationItemSelectedListener
+    public class ViewCinema: Activity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
-        Button btn1, btn2, btn3, btn4;
-        string cinema = "", seats = "";
+        ListView listView;
+        HttpWebRequest request;
+        HttpWebResponse response;
+        string cinema_name = "", res = "";
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.ViewCinema);
+            SetContentView(Resource.Layout.Cinema);
             BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
             navigation.SetOnNavigationItemSelectedListener(this);
 
-            // Create your application here
-            btn1 = FindViewById<Button>(Resource.Id.button1);
-            btn2 = FindViewById<Button>(Resource.Id.button2);
-            btn3 = FindViewById<Button>(Resource.Id.button3);
-            btn4 = FindViewById<Button>(Resource.Id.button4);
+            listView = FindViewById<ListView>(Resource.Id.listView10);
+            listView.ItemClick += CinemaItemClick;
 
-            btn1.Click += this.Cinema1;
-            //btn2.Click += this.Cinema2;
-            //btn3.Click += this.Cinema3;
-            //btn4.Click += this.Cinema4;
-
+            cinema_name = Intent.GetStringExtra("cinema_name");
+            SearchCinema(cinema_name);
         }
-        public void Cinema1(object sender, EventArgs e)
+
+        private void SearchCinema(string cinemaName)
         {
-            Intent i = new Intent(this, typeof(ViewCinemaDetails));
-            i.PutExtra("cinema", cinema);
-            StartActivity(i);
+            request = (HttpWebRequest)WebRequest.Create("http://192.168.100.52/ticketease/rest/view_cinema.php?cinema_name=" + cinemaName);
+            response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            var check = reader.ReadToEnd();
+            using JsonDocument doc = JsonDocument.Parse(check);
+            JsonElement root = doc.RootElement;
 
+            List<string> cinemaData = new List<string>();
+            foreach (JsonElement element in root.EnumerateArray())
+            {
+                string currentCinemaName = element.GetProperty("cinema_name").ToString();
+                string cinemaInfo = currentCinemaName;
+                cinemaData.Add(cinemaInfo);
+            }
+
+            listView.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, cinemaData);
         }
+
+        private void CinemaItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+            string selectedCinemaName = listView.GetItemAtPosition(e.Position).ToString();
+
+            Intent intent = new Intent(this, typeof(cinema));
+            intent.PutExtra("cinema_name", selectedCinemaName);
+            StartActivity(intent);
+        }
+
         public bool OnNavigationItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
@@ -57,6 +81,8 @@ namespace TicketEase
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_cinema:
+                    i = new Intent(this, typeof(ViewCinema));
+                    StartActivity(i);
                     return true;
                 case Resource.Id.navigation_food:
                     i = new Intent(this, typeof(viewfood));
