@@ -5,17 +5,20 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Google.Android.Material.BottomNavigation;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text.Json;
 using static Android.Graphics.Paint;
+using Google.Android.Material.BottomNavigation;
+
 
 namespace TicketEase
 {
     [Activity(Label = "viewmovies")]
-    public class viewmovies : Activity
+    public class viewmovies : Activity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
         ListView listView;
         HttpWebRequest request;
@@ -26,6 +29,8 @@ namespace TicketEase
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.movie_layout);
+            BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
+            navigation.SetOnNavigationItemSelectedListener(this);
 
             listView = FindViewById<ListView>(Resource.Id.listView);
             listView.ItemClick += MovieItemClick;
@@ -61,6 +66,31 @@ namespace TicketEase
             Intent intent = new Intent(this, typeof(movies));
             intent.PutExtra("movie_name", selectedMovieName);
             StartActivity(intent);
+        }
+
+        public bool OnNavigationItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.navigation_home:
+                    //textMessage.SetText(Resource.String.title_home);
+                    SetContentView(Resource.Layout.Homepage);
+                    return true;
+                case Resource.Id.navigation_movies:
+                    Intent i = new Intent(this, typeof(viewmovies));
+                    StartActivity(i);
+                    return true;
+                case Resource.Id.navigation_cinema:
+                    return true;
+                case Resource.Id.navigation_food:
+                    i = new Intent(this, typeof(viewfood));
+                    StartActivity(i);
+                    return true;
+                case Resource.Id.navigation_signout:
+                    SetContentView(Resource.Layout.LoginUI);
+                    return true;
+            }
+            return false;
         }
 
     }

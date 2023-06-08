@@ -10,11 +10,12 @@ using System.Collections.Generic;
 using System.Net;
 using System.IO;
 using System.Text.Json.Serialization;
+using Google.Android.Material.BottomNavigation;
 
 namespace TicketEase
 {
     [Activity(Label = "movies")]
-    public class movies : Activity
+    public class movies : Activity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
         TextView name, description, price;
 
@@ -22,6 +23,8 @@ namespace TicketEase
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.movie1);
+            BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
+            navigation.SetOnNavigationItemSelectedListener(this);
 
             name = FindViewById<TextView>(Resource.Id.textView1);
             description = FindViewById<TextView>(Resource.Id.textView2);
@@ -68,6 +71,30 @@ namespace TicketEase
                     Console.WriteLine("Error: " + ex.Message);
                 }
             }
+        }
+        public bool OnNavigationItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.navigation_home:
+                    //textMessage.SetText(Resource.String.title_home);
+                    SetContentView(Resource.Layout.Homepage);
+                    return true;
+                case Resource.Id.navigation_movies:
+                    Intent i = new Intent(this, typeof(viewmovies));
+                    StartActivity(i);
+                    return true;
+                case Resource.Id.navigation_cinema:
+                    return true;
+                case Resource.Id.navigation_food:
+                    i = new Intent(this, typeof(viewfood));
+                    StartActivity(i);
+                    return true;
+                case Resource.Id.navigation_signout:
+                    SetContentView(Resource.Layout.LoginUI);
+                    return true;
+            }
+            return false;
         }
     }
 
