@@ -84,6 +84,39 @@ namespace TicketEase
             user_username = newuser.Text;
             user_pass = newpass.Text;
 
+            //input validation, not null
+            if (string.IsNullOrEmpty(user_fname) || string.IsNullOrEmpty(user_lname) ||
+                string.IsNullOrEmpty(user_gender) || string.IsNullOrEmpty(user_month) ||
+                string.IsNullOrEmpty(user_day) || string.IsNullOrEmpty(user_year) ||
+                string.IsNullOrEmpty(user_number) || string.IsNullOrEmpty(user_email) ||
+                string.IsNullOrEmpty(user_username) || string.IsNullOrEmpty(user_pass))
+            {
+                Toast.MakeText(this, "Please fill in all fields", ToastLength.Long).Show();
+                return;
+            }
+            //month validation
+            int month, day, year;
+            if (!int.TryParse(user_month, out month) || !int.TryParse(user_day, out day) || !int.TryParse(user_year, out year))
+            {
+                Toast.MakeText(this, "Invalid date format", ToastLength.Long).Show();
+                return;
+            }
+
+            //month validation
+            if (month < 1 || month > 12 || 
+                day < 1 || day > 31 || 
+                year < 1900 || year > DateTime.Now.Year)
+            {
+                Toast.MakeText(this, "Invalid date input", ToastLength.Long).Show();
+                return;
+            }
+            //email validation
+            if (!user_email.EndsWith("@gmail.com") && !user_email.EndsWith("@yahoo.com"))
+            {
+                Toast.MakeText(this, "Invalid email address", ToastLength.Long).Show();
+                return;
+            }
+
             request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50:8080/ticketease/rest/signup.php?user_fname=" + user_fname + "&user_lname=" + user_lname + "&user_gender=" + user_gender + "&user_month=" + user_month + "&user_day=" + user_day + "&user_year=" + user_year + "&user_number=" + user_number + "&user_email=" + user_email + "&user_username=" +user_username + "&user_pass=" + user_pass);
             response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
