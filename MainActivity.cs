@@ -37,9 +37,14 @@ namespace TicketEase
         {
             user_username = edit1.Text;
             user_pass = edit2.Text;
-            //192.168.1.32
-            //192.168.1.50
-            request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50:8080/ticketease/rest/login.php?user_username=" + user_username +  "&user_pass=" + user_pass);
+
+            if (string.IsNullOrEmpty(user_username) || string.IsNullOrEmpty(user_pass))
+            {
+                Toast.MakeText(this, "Please enter both username and password", ToastLength.Short).Show();
+                return;
+            }
+
+            request = (HttpWebRequest)WebRequest.Create("http://192.168.1.50:8080/ticketease/rest/login.php?user_username=" + user_username + "&user_pass=" + user_pass);
             response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             res = reader.ReadToEnd();
