@@ -15,7 +15,7 @@ using Google.Android.Material.BottomNavigation;
 namespace TicketEase
 {
     [Activity(Label = "foods")]
-    public class foods : Activity, BottomNavigationView.IOnNavigationItemSelectedListener
+    public class food : Activity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
         TextView name, price;
 
@@ -73,10 +73,12 @@ namespace TicketEase
             {
                 case Resource.Id.navigation_home:
                     //textMessage.SetText(Resource.String.title_home);
+                    Intent i = new Intent(this, typeof(Homepage));
+                    StartActivity(i);
                     SetContentView(Resource.Layout.Homepage);
                     return true;
                 case Resource.Id.navigation_movies:
-                    Intent i = new Intent(this, typeof(viewmovies));
+                    i = new Intent(this, typeof(viewmovies));
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_cinema:
@@ -86,7 +88,8 @@ namespace TicketEase
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_signout:
-                    SetContentView(Resource.Layout.LoginUI);
+                    i = new Intent(this, typeof(MainActivity));
+                    StartActivity(i);
                     return true;
             }
             return false;

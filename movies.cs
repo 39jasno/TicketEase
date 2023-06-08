@@ -17,7 +17,7 @@ namespace TicketEase
     [Activity(Label = "movies")]
     public class movies : Activity, BottomNavigationView.IOnNavigationItemSelectedListener
     {
-        TextView name, description, price;
+        TextView name, year, director, description, price;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,8 +27,10 @@ namespace TicketEase
             navigation.SetOnNavigationItemSelectedListener(this);
 
             name = FindViewById<TextView>(Resource.Id.textView1);
-            description = FindViewById<TextView>(Resource.Id.textView2);
-            price = FindViewById<TextView>(Resource.Id.textView3);
+            year = FindViewById<TextView>(Resource.Id.textView4);
+            director = FindViewById<TextView>(Resource.Id.textView3);
+            price = FindViewById<TextView>(Resource.Id.textView2);
+            description = FindViewById<TextView>(Resource.Id.textView5);
 
             string movieName = Intent.GetStringExtra("movie_name");
             if (!string.IsNullOrEmpty(movieName))
@@ -56,6 +58,8 @@ namespace TicketEase
                     {
                         Movie movie = movieData[0];
                         name.Text = movie.MovieName;
+                        director.Text = movie.MovieDirector;
+                        year.Text = movie.MovieYear;
                         description.Text = movie.MovieDescription;
                         price.Text = movie.MoviePrice.ToString();
                     }
@@ -78,10 +82,12 @@ namespace TicketEase
             {
                 case Resource.Id.navigation_home:
                     //textMessage.SetText(Resource.String.title_home);
+                    Intent i = new Intent(this, typeof(Homepage));
+                    StartActivity(i);
                     SetContentView(Resource.Layout.Homepage);
                     return true;
                 case Resource.Id.navigation_movies:
-                    Intent i = new Intent(this, typeof(viewmovies));
+                    i = new Intent(this, typeof(viewmovies));
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_cinema:
@@ -91,7 +97,8 @@ namespace TicketEase
                     StartActivity(i);
                     return true;
                 case Resource.Id.navigation_signout:
-                    SetContentView(Resource.Layout.LoginUI);
+                    i = new Intent(this, typeof(MainActivity));
+                    StartActivity(i);
                     return true;
             }
             return false;
@@ -102,6 +109,12 @@ namespace TicketEase
     {
         [JsonProperty("movie_name")]
         public string MovieName { get; set; }
+
+        [JsonProperty("movie_year")]
+        public string MovieYear { get; set; }
+
+        [JsonProperty("movie_director")]
+        public string MovieDirector { get; set; }
 
         [JsonProperty("movie_description")]
         public string MovieDescription { get; set; }

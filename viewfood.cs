@@ -25,13 +25,13 @@ namespace TicketEase
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.movie_layout);
+            SetContentView(Resource.Layout.food_layout);
 
             BottomNavigationView navigation = FindViewById<BottomNavigationView>(Resource.Id.navigation);
             navigation.SetOnNavigationItemSelectedListener(this);
 
-            listView = FindViewById<ListView>(Resource.Id.listView);
-            listView.ItemClick += MovieItemClick;
+            listView = FindViewById<ListView>(Resource.Id.listView1);
+            listView.ItemClick += FoodItemClick;
 
             food_name = Intent.GetStringExtra("food_name");
             SearchFoods(food_name);
@@ -58,14 +58,14 @@ namespace TicketEase
             listView.Adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, foodData);
         }
 
-        private void MovieItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        private void FoodItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
+
             string foodMoName = listView.GetItemAtPosition(e.Position).ToString();
 
-            Intent intent = new Intent(this, typeof(foods));
+            Intent intent = new Intent(this, typeof(food));
             intent.PutExtra("food_name", foodMoName);
             StartActivity(intent);
-
 
         }
         public bool OnNavigationItemSelected(IMenuItem item)

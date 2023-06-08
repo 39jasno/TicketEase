@@ -10,7 +10,8 @@
         android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
+        android:gravity="center"
         android:id="@+id/textView1" />
     <ListView
         android:minWidth="25px"
