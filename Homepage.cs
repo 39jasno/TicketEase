@@ -25,10 +25,16 @@ namespace TicketEase
             btn3 = FindViewById<Button>(Resource.Id.button3);
             btn4 = FindViewById<Button>(Resource.Id.button4);
 
-            //btn1.Click += this.ViewMovies;
+            btn1.Click += this.ViewMovies;
             btn2.Click += this.ViewCinema;
-            //btn3.Click += this.ViewFood;
+            btn3.Click += this.ViewFood;
             //btn4.Click += this.ViewAccount;
+
+        }
+        public void ViewMovies(object sender, EventArgs e)
+        {
+            Intent i = new Intent(this, typeof(viewmovies));
+            StartActivity(i);
 
         }
         public void ViewCinema(object sender, EventArgs e)
@@ -36,7 +42,36 @@ namespace TicketEase
             SetContentView(Resource.Layout.ViewCinema);
 
         }
+        public void ViewFood(object sender, EventArgs e)
+        {
+            Intent i = new Intent(this, typeof(viewfood));
+            StartActivity(i);
 
+        }
+        public bool OnNavigationItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.navigation_home:
+                    //textMessage.SetText(Resource.String.title_home);
+                    SetContentView(Resource.Layout.Homepage);
+                    return true;
+                case Resource.Id.navigation_movies:
+                    Intent i = new Intent(this, typeof(viewmovies));
+                    StartActivity(i);
+                    return true;
+                case Resource.Id.navigation_cinema:
+                    return true;
+                case Resource.Id.navigation_food:
+                    i = new Intent(this, typeof(viewfood));
+                    StartActivity(i);
+                    return true;
+                case Resource.Id.navigation_signout:
+                    SetContentView(Resource.Layout.LoginUI);
+                    return true;
+            }
+            return false;
+        }
     }
 
 }

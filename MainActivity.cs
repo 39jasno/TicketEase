@@ -43,7 +43,7 @@ namespace TicketEase
             response = (HttpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
             res = reader.ReadToEnd();
-            Toast.MakeText(this, res, ToastLength.Long).Show();
+            Toast.MakeText(this, res, ToastLength.Short).Show();
 
             if (res.Contains("Login Successfuly"))
             {

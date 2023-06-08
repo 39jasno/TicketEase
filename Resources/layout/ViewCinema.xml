@@ -43,7 +43,7 @@
         android:layout_below="@id/button2"
         android:id="@+id/button3" />
     <Button
-        android:text="Button"
+        android:text="@string/cinema4"
         android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="65dp"
